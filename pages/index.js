@@ -97,6 +97,13 @@ export default function HoyoGachaFortune() {
     setError('');
   };
 
+  const backToGameSelect = () => {
+    setStep(2);
+    setSelectedGame('');
+    setFortune(null);
+    setError('');
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
       {/* Animated stars background */}
@@ -344,13 +351,19 @@ export default function HoyoGachaFortune() {
               <p className="text-purple-200">{fortune.advice}</p>
             </div>
 
-            {/* Reset Button */}
-            <div className="text-center mt-8">
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+              <button
+                onClick={backToGameSelect}
+                className="px-8 py-3 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-full text-white font-semibold hover:from-blue-500 hover:via-indigo-500 hover:to-purple-500 transition-all shadow-lg shadow-blue-500/50 hover:shadow-indigo-500/50 transform hover:scale-105"
+              >
+                🎮 ทำนายเกมอื่น
+              </button>
               <button
                 onClick={resetApp}
                 className="px-8 py-3 bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-500 rounded-full text-white font-semibold hover:from-purple-500 hover:via-blue-500 hover:to-cyan-400 transition-all shadow-lg shadow-purple-500/50 hover:shadow-cyan-500/50 transform hover:scale-105"
               >
-                ทำนายใหม่อีกครั้ง
+                🔮 กรอกวันเกิดใหม่
               </button>
             </div>
           </div>
